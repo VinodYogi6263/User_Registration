@@ -1,0 +1,40 @@
+2023-03-02 15:28:35.643  INFO 14732 --- [restartedMain] com.ss.User_Registration_Application     : Starting User_Registration_Application using Java 17.0.5 on DESKTOP-RICGSU9 with PID 14732 (D:\SS\User_Registration\target\classes started by DELL in D:\SS\User_Registration)
+2023-03-02 15:28:35.646  INFO 14732 --- [restartedMain] com.ss.User_Registration_Application     : The following 1 profile is active: "dev"
+2023-03-02 15:28:35.717  INFO 14732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-02 15:28:35.718  INFO 14732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-02 15:28:36.726  INFO 14732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-02 15:28:36.790  INFO 14732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interfaces.
+2023-03-02 15:28:37.472  INFO 14732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2023-03-02 15:28:37.485  INFO 14732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-02 15:28:37.486  INFO 14732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-02 15:28:37.586  INFO 14732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-02 15:28:37.587  INFO 14732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1869 ms
+2023-03-02 15:28:37.762  INFO 14732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-02 15:28:37.826  INFO 14732 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-03-02 15:28:37.987  INFO 14732 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-02 15:28:38.081  INFO 14732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-02 15:28:38.251  INFO 14732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-02 15:28:38.269  INFO 14732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-03-02 15:28:38.995  INFO 14732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-02 15:28:39.007  INFO 14732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-02 15:28:39.465  WARN 14732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-02 15:28:39.994  INFO 14732 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@321d7350, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11c6150c, org.springframework.security.web.context.SecurityContextPersistenceFilter@a96f837, org.springframework.security.web.header.HeaderWriterFilter@4d9b64b7, org.springframework.security.web.authentication.logout.LogoutFilter@348c254a, com.ss.filter.Jwt_Filter@24e96c5a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7412a4b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@252808d8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53ca820d, org.springframework.security.web.session.SessionManagementFilter@717ee85c, org.springframework.security.web.access.ExceptionTranslationFilter@4cb95109, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@600116ce]
+2023-03-02 15:28:40.129  INFO 14732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-02 15:28:40.391  INFO 14732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2023-03-02 15:28:40.620  INFO 14732 --- [restartedMain] com.ss.User_Registration_Application     : Started User_Registration_Application in 5.421 seconds (JVM running for 6.366)
+2023-03-02 15:28:40.624  INFO 14732 --- [restartedMain] com.ss.User_Registration_Application     : Run Succssfully User_Registration_Application main method
+2023-03-02 15:28:51.641  INFO 14732 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-03-02 15:28:51.657  INFO 14732 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-02 15:28:51.678  WARN 14732 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-03-02 15:28:51.694  INFO 14732 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-02 15:28:51.710  INFO 14732 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-02 15:28:51.728  INFO 14732 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
