@@ -22,11 +22,11 @@ public class scheduling_Email {
 	@Autowired
 	User_Repository user_Repository;
 	
-	@Scheduled(cron = "* * * */15 * *")
+	@Scheduled(cron = "* * */24 * * *")
 	public void send()
 	{
 		Calendar c = Calendar.getInstance();
-		c.add(Calendar.DAY_OF_MONTH,-1);
+		c.add(Calendar.DAY_OF_MONTH,-15);
 		java.util.Date time = c.getTime();
 		java.sql.Date sqlDate = new java.sql.Date(time.getTime());
 		Date date = Date.valueOf(new SimpleDateFormat("yyyy-MM-dd").format(sqlDate));
