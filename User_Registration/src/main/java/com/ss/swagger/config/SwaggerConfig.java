@@ -57,7 +57,7 @@ public class SwaggerConfig
 	private ApiInfo metaData() {
 		return new ApiInfo("User Registration :String Boot", "this project is developed by ss teams", "1.0", "Terms of service",
 				new Contact("Sculpt soft", "https://www.sculptsoft.com/", "info@sculptsoft.com"), "License APIS",
-				"APIS", Collections.EMPTY_LIST);
+				"APIS", Collections.emptyList());
 	}
 
 }
