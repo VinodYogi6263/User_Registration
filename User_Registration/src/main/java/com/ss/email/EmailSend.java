@@ -28,7 +28,7 @@ public class EmailSend {
 	@Value("${username}")
     private String username;
 	
-	public  void send(String to_Email,String Body ) {
+	public  void send(String toEmail,String body ) {
 		String path ="D://SS/test.jpg";
 		try 
 		{
@@ -39,9 +39,9 @@ public class EmailSend {
 			
 			mimeMessageHelper.setFrom(username);
 			
-			mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to_Email));
+			mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
 			
-			mimeMessageHelper.setText(Body);
+			mimeMessageHelper.setText(body);
 			
 			mimeMessageHelper.setSubject("FORGOT YOUR PASSWORD");
 			
@@ -58,7 +58,6 @@ public class EmailSend {
 		{
 			log.error("error inside the email send call ");
             log.error(e.getMessage());
-			log.error(e.getMessage());
 		}
 	}
 

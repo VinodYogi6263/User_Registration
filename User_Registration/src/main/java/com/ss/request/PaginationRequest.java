@@ -15,7 +15,7 @@ public class PaginationRequest {
 	private int pageSize;
 	
 	@NotBlank(message =ConstantsMessage.VALID_PROPERTY_SORT_BY)
-	private String sortBy = "userId";
+	private String sortBy = "id";
 	
 	private String search;
 

@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,12 @@ import com.ss.entity.UserEntity;
 import com.ss.exception.InternalException;
 import com.ss.repository.UserRepository;
 
+
 @Service
-public class schedulingEmail {
+public class SchedulingEmail
+{
 	
+		
 	
 	 @Autowired
      private EmailSend emailSend;
@@ -26,9 +30,16 @@ public class schedulingEmail {
 	@Autowired
 	private UserRepository userRepository;
 	
-	private final Logger log = LoggerFactory.getLogger(schedulingEmail.class);
 	
-	@Scheduled(cron = "* * */24 * * *")
+	private final Logger log = LoggerFactory.getLogger(SchedulingEmail.class);
+	
+	@Value("${EMAIL_BODY}")
+    private	String body; 
+	
+	@Value("${EMAIL_FOODER}")
+    private	String fooder; 
+	
+	@Scheduled(cron = "* * * */24 * *")
 	public void send()
 	{
 		
@@ -41,13 +52,13 @@ public class schedulingEmail {
 		
 		try {
 			
-			List<UserEntity> user_List = userRepository.findByPasswordUpdated(date);
+			List<UserEntity> userList = userRepository.findByPasswordUpdated(date);
 			log.info("today password update remander send");
 			
-		for( UserEntity user :user_List)
+		for( UserEntity user :userList)
 		{	
 	
-			emailSend.send(user.getEmail(),ConstantsMessage.EMAIL_BODY+ " "+ user.getFirstName()+" " + user.getLastName()+" "+ConstantsMessage.EMAIL_FOODER);
+			emailSend.send(user.getEmail(),body+ " "+ user.getFirstName()+" " + user.getLastName()+" "+fooder);
 			
 		}	
 	}

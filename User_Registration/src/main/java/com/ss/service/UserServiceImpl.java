@@ -201,14 +201,14 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Override
-	public ResponseEntity<GeneralResponse> userDelete(long requestId) {
+	public ResponseEntity<GeneralResponse> userDelete(long userId) {
 		try
 		{
-			if(!userRepository.existsById(requestId))
+			if(!userRepository.existsById(userId))
 			{
 			throw new NoSuchElementException(ConstantsMessage.ID_NOT_FOUND);
 			}
-		userRepository.deleteById(requestId);
+		userRepository.deleteById(userId);
 		log.info("user delete service method called");
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(ConstantsMessage.DELETE_SUCCESSFULLY),HttpStatus.OK);
 		}
@@ -227,17 +227,23 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Override
-	public ResponseEntity<GeneralResponse> userGetById(long requestId) {
+	public ResponseEntity<GeneralResponse> userGetById(long userId) {
 		try
 		{
-			if(!userRepository.existsById(requestId))
+			if(!userRepository.existsById(userId))
 			{
 				throw new NoSuchElementException(ConstantsMessage.ID_NOT_FOUND);
 			}
 			
-		UserEntity userEntity = userRepository.findById(requestId).get();
+		UserEntity userEntity = userRepository.findById(userId).get();
 		log.info("user get by id service method called ");
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(ConstantsMessage.FOUND_SUCCESSFULLY,userEntity),HttpStatus.OK);
+		}
+		catch (NoSuchElementException e)
+		{
+			log.error("error inside the user get by id   service method ");
+			log.error(e.getMessage());
+			throw new NoSuchElementException(ConstantsMessage.ID_NOT_FOUND);
 		}
 		
 		catch (Exception e)
@@ -268,14 +274,14 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Override
-	public ResponseEntity<GeneralResponse> deletePo(long requestId) {
+	public ResponseEntity<GeneralResponse> deletePo(long propertyOwnerId ) {
 		try
 		{
-		UserEntity userEntity = userRepository.findById(requestId).get();
+		UserEntity userEntity = userRepository.findById(propertyOwnerId ).get();
 		
 		if(userEntity.getRole().equals("ROLE_PO"))
 		{
-			userRepository.deleteById(requestId);
+			userRepository.deleteById(propertyOwnerId );
 			return new ResponseEntity<GeneralResponse>(new GeneralResponse(ConstantsMessage.DELETE_SUCCESSFULLY),HttpStatus.OK);
 		}
 		else
@@ -359,29 +365,15 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Override
-	public ResponseEntity<GeneralResponse> getProfile(long requestId)
+	public ResponseEntity<GeneralResponse> getProfile(long usertId)
 	
 	{
-		Authentication authentication=null;
-		
-		UserEntity userEntity=null;
-		
+		Authentication authentication = SecurityContextHolder. getContext(). getAuthentication(); 
 		try 
-		{
-			authentication = SecurityContextHolder. getContext(). getAuthentication(); 
-			
-			userEntity = userRepository.findById(requestId).get();
-			
-		}
-		catch (Exception e) {
-
-			throw new InternalException(ConstantsMessage.INTERNAL_EXCEPTION_MESSAGE);
-
-		}
-		
-				
+		{		
+			UserEntity userEntity = userRepository.findById(usertId).get();
 		if(authentication.getName().equals(userEntity.getEmail()))
-		{
+		{	
 			return new ResponseEntity<GeneralResponse>(new GeneralResponse(ConstantsMessage.FOUND_SUCCESSFULLY,userEntity),HttpStatus.OK);
 		}
 		else
@@ -389,7 +381,18 @@ public class UserServiceImpl implements UserService
 			throw new EmptyResultDataAccessExceptionHandle(ConstantsMessage.ID_NOT_FOUND);
 		}
 		
+		}
 		
+		catch (EmptyResultDataAccessException e) {
+
+			throw new EmptyResultDataAccessExceptionHandle(ConstantsMessage.ID_NOT_FOUND);
+
+		}	
+		catch (Exception e) {
+
+			throw new InternalException(ConstantsMessage.INTERNAL_EXCEPTION_MESSAGE);
+
+		}		
 	}
 
 	@Override

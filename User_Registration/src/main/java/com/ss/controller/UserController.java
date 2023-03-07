@@ -65,10 +65,10 @@ public class UserController {
 	
 	@PreAuthorize("hasRole('MANAGER')")
 	@GetMapping("/getbyid")
-	public ResponseEntity<GeneralResponse> getSingleUserById( @RequestParam("id") long id)
+	public ResponseEntity<GeneralResponse> getSingleUserById( @RequestParam("id") long userId)
 	{
 		log.info(" inside the user controller get single user by id api called");
-		return userService.userGetById(id);
+		return userService.userGetById(userId);
 		
 	}
 	
@@ -113,10 +113,10 @@ public class UserController {
 	
 	@PreAuthorize("hasRole('MANAGER')")
 	@DeleteMapping("/delete")
-	public ResponseEntity<GeneralResponse> deletUserById(@RequestParam ("request_id") long requestid)
+	public ResponseEntity<GeneralResponse> deletUserById(@RequestParam ("request_id") long userId)
 	{
 		log.info(" inside the user controller deleteUserById api called");
-		return userService.userDelete(requestid);
+		return userService.userDelete(userId);
 		
 	}
 	
@@ -146,10 +146,10 @@ public class UserController {
 	
 	@PreAuthorize("hasRole('APPRAISER')")
 	@DeleteMapping("/delete_po")
-	public ResponseEntity<GeneralResponse> deletePoById(@RequestParam ("id") long requestid)
+	public ResponseEntity<GeneralResponse> deletePoById(@RequestParam ("id") long propertyOwnerId )
 	{
 		log.info(" inside the user controller deletepo by ById api called");
-		return userService.deletePo(requestid);
+		return userService.deletePo(propertyOwnerId );
 		
 	}
 	
@@ -198,10 +198,10 @@ public class UserController {
 	
 	@PreAuthorize("hasAnyRole('APPRAISER','MANAGER','PO')")
 	@GetMapping("/profile")
-	public ResponseEntity<GeneralResponse> getProfileOnlyPersional(@RequestParam("id") long requestid) 
+	public ResponseEntity<GeneralResponse> getProfileOnlyPersional(@RequestParam("id") long userId) 
 	{
 		log.info(" inside the user controller get profile   api called");
-		return userService.getProfile(requestid);
+		return userService.getProfile(userId);
 	
 	}
 	

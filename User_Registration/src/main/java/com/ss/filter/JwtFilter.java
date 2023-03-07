@@ -35,16 +35,16 @@ public class JwtFilter extends OncePerRequestFilter {
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-		String request_token_header = request.getHeader("Authorization");
+		String requestTokenHeader = request.getHeader("Authorization");
 		
-		String user_name = null;
+		String userName = null;
 		
-		String jwt_token = null;
+		String jwtToken = null;
 		
-		if (request_token_header != null && request_token_header.startsWith("Bearer")) {
-			jwt_token = request_token_header.substring(7);
+		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer")) {
+			jwtToken = requestTokenHeader.substring(7);
 			try {
-				user_name = this.jwtUtil.getUsernameFromToken(jwt_token);
+				userName = this.jwtUtil.getUsernameFromToken(jwtToken);
 			} catch (ExpiredJwtException e1) 
 			{
 				log.error("This token is Expired Please Generate new Token......");
@@ -60,11 +60,11 @@ public class JwtFilter extends OncePerRequestFilter {
 			}
 		}
 
-		if (user_name != null && SecurityContextHolder.getContext().getAuthentication() == null)
+		if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null)
 		{
-			UserDetails userDetails = customUserDetailsService.loadUserByUsername(user_name);
+			UserDetails userDetails = customUserDetailsService.loadUserByUsername(userName);
 
-			if (this.jwtUtil.validateToken(jwt_token, userDetails))
+			if (this.jwtUtil.validateToken(jwtToken, userDetails))
 			{
 				UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
 						userDetails, null, userDetails.getAuthorities());

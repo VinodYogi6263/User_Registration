@@ -13,7 +13,7 @@
 	<artifactId>User_Registration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>User_Registration</name>
-	<description>project for Spring Boot</description>
+	<description> user registration spring boot application</description>
 	
 	<properties>
 		<java.version>11</java.version>
@@ -34,7 +34,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>3.0.2</version>
 		</dependency>
 		
 		<dependency>

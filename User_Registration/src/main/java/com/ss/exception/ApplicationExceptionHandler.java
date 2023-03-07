@@ -17,11 +17,11 @@ import com.ss.response.GeneralResponse;
 public class ApplicationExceptionHandler
 
 {
-	LocalDateTime current = LocalDateTime.now();
+	
 	
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public Map<String, String> HandleInvalidArgument(MethodArgumentNotValidException ex) 
+	public Map<String, String> handleInvalidArgument(MethodArgumentNotValidException ex) 
 	{
 		Map<String, String> errormap = new HashMap<>();
 		
@@ -36,44 +36,44 @@ public class ApplicationExceptionHandler
 	}
 	
 	@ExceptionHandler(InternalException.class)
-	public ResponseEntity<GeneralResponse> Internal_Exception(InternalException e) {
-		
+	public ResponseEntity<GeneralResponse> internalException(InternalException e) {
+		LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.BAD_REQUEST);
 
 	}
 	
 	@ExceptionHandler(NullValueException.class)
-	public ResponseEntity<GeneralResponse> Null_Value_Exception(NullValueException e) {
-		
+	public ResponseEntity<GeneralResponse> nullValueException(NullValueException e) {
+		LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.NOT_FOUND);
 
 	}
 	
 
 	@ExceptionHandler(EmptyResultDataAccessExceptionHandle.class)
-	public ResponseEntity<GeneralResponse> Empty_Result_Data_Access_Exception(EmptyResultDataAccessExceptionHandle e) {
-		
+	public ResponseEntity<GeneralResponse> emptyResultDataAccessException(EmptyResultDataAccessExceptionHandle e) {
+		LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.NOT_FOUND);
 
 	}
 	
 	@ExceptionHandler(NoSuchElementExceptionHandle.class)
-	public ResponseEntity<GeneralResponse> No_Such_Element_Exception(NoSuchElementExceptionHandle e) {
-		
+	public ResponseEntity<GeneralResponse> noSuchElementException(NoSuchElementExceptionHandle e) {
+		LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.BAD_REQUEST);
 
 	}
 	
 	@ExceptionHandler(BadCredentialsExceptionHandle.class)
-	public ResponseEntity<GeneralResponse> Bad_Credentials_Exception_Handle(BadCredentialsExceptionHandle e) {
-		
+	public ResponseEntity<GeneralResponse> badCredentialsExceptionHandle(BadCredentialsExceptionHandle e) {
+		LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.BAD_REQUEST);
 
 	}
 
 	@ExceptionHandler(InvalidProperty.class)
-	public ResponseEntity<GeneralResponse> Property_InvalidDataAccessApiUsageException(InvalidProperty e) {
-		
+	public ResponseEntity<GeneralResponse> propertyInvalidDataAccessApiUsageException(InvalidProperty e) {
+		LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.BAD_REQUEST);
 
 	}
@@ -81,7 +81,7 @@ public class ApplicationExceptionHandler
 	
 	@ExceptionHandler(AccessDeniedException.class)
 	public ResponseEntity<GeneralResponse> handleAccessDeniedException(AccessDeniedException e) 
-	{
+	{LocalDateTime current = LocalDateTime.now();
 		return new ResponseEntity<GeneralResponse>(new GeneralResponse(e.getMessage()+"  "+current),HttpStatus.FORBIDDEN);
 	}
 

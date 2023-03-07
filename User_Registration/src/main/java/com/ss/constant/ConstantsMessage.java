@@ -48,10 +48,6 @@ public class ConstantsMessage {
 
 	public static final String PASSWORD_NOT_CHANGE = "YOU CAN TO CHANGE PASSWORD PLEASE INTER OLD PASSWORD...";
 
-	public static final String EMAIL_BODY = "Please change your password as it has been 15 days since you updated your password ";
-
-	public static final String EMAIL_FOODER = " For security reasons, please update your password http://localhost:9090/user/passwordupdate as soon as possible     Thank you,   The Management";
-
 	public static final String EMAIL_PASSWORD_CHANGE = "Your password has been changed successfully thanks for joining the ss teams";
 
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
